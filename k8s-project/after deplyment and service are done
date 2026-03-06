@@ -1,0 +1,15 @@
+Go to Azure → VM → Networking → NSG
+
+Add inbound rule:
+
+Port: 30007
+Protocol: TCP
+Action: Allow
+
+curl http://<MASTER_PUBLIC_IP>:30007
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+kubectl get pods -n kube-system
+
+kubectl autoscale deployment backend --cpu-percent=50 --min=2 --max=10
